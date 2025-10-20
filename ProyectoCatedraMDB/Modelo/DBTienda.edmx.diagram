@@ -4,13 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8d9173bd2bbb4c76ac5c27ac339e43ef" Name="Diagram1">
-        <EntityTypeShape EntityType="TiendaModel.Categoria" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TiendaModel.Productos" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TiendaModel.Proveedores" Width="1.5" PointX="5" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TiendaModel.Stock" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <AssociationConnector Association="TiendaModel.FK_IdCategoria" ManuallyRouted="false" />
-        <AssociationConnector Association="TiendaModel.FK_StockProducto" ManuallyRouted="false" />
+      <Diagram DiagramId="8d9173bd2bbb4c76ac5c27ac339e43ef" Name="Diagram1" ZoomLevel="112">
+        <EntityTypeShape EntityType="TiendaModel.AuditoriaPrecioProductos" Width="1.5" PointX="4.375" PointY="6.875" />
+        <EntityTypeShape EntityType="TiendaModel.Categoria" Width="1.5" PointX="2.375" PointY="4" />
+        <EntityTypeShape EntityType="TiendaModel.IngresoProductos" Width="1.5" PointX="9.875" PointY="3.375" />
+        <EntityTypeShape EntityType="TiendaModel.Productos" Width="1.5" PointX="4.625" PointY="3.5" />
+        <EntityTypeShape EntityType="TiendaModel.Proveedores" Width="1.5" PointX="9.875" PointY="6.75" />
+        <EntityTypeShape EntityType="TiendaModel.Stock" Width="1.5" PointX="6.875" PointY="3.75" />
+        <EntityTypeShape EntityType="TiendaModel.Usuarios" Width="1.5" PointX="7.625" PointY="6.875" />
+        <AssociationConnector Association="TiendaModel.FK_IdCategoria" />
+        <AssociationConnector Association="TiendaModel.FK_IngresoProducto" />
+        <AssociationConnector Association="TiendaModel.FK_IngresoProveedor" />
+        <AssociationConnector Association="TiendaModel.FK_IngresoUsuario" />
+        <AssociationConnector Association="TiendaModel.FK__Stock__IdProduct__60A75C0F" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

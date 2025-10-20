@@ -25,9 +25,12 @@ namespace ProyectoCatedraMDB.Modelo
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AuditoriaPrecioProductos> AuditoriaPrecioProductos { get; set; }
         public virtual DbSet<Categoria> Categoria { get; set; }
+        public virtual DbSet<IngresoProductos> IngresoProductos { get; set; }
         public virtual DbSet<Productos> Productos { get; set; }
         public virtual DbSet<Proveedores> Proveedores { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
     }
 }

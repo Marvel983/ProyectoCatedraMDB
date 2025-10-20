@@ -12,18 +12,17 @@ namespace ProyectoCatedraMDB.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Proveedores
+    public partial class IngresoProductos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Proveedores()
-        {
-            this.IngresoProductos = new HashSet<IngresoProductos>();
-        }
-    
+        public int IdIngreso { get; set; }
+        public int IdProducto { get; set; }
         public string NombreProveedor { get; set; }
-        public string Contacto { get; set; }
+        public int CantidadIngreso { get; set; }
+        public int IdUsuario { get; set; }
+        public System.DateTime FechaIngreso { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IngresoProductos> IngresoProductos { get; set; }
+        public virtual Productos Productos { get; set; }
+        public virtual Proveedores Proveedores { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
     }
 }

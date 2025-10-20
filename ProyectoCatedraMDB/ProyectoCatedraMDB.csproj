@@ -76,6 +76,12 @@
     <Compile Include="FormInicio.Designer.cs">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,15 @@
     </Compile>
     <Compile Include="FormProveedores.Designer.cs">
       <DependentUpon>FormProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsuarios.Designer.cs">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\AuditoriaPrecioProductos.cs">
+      <DependentUpon>DBTienda.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Categoria.cs">
       <DependentUpon>DBTienda.tt</DependentUpon>
@@ -106,6 +121,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBTienda.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\IngresoProductos.cs">
+      <DependentUpon>DBTienda.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Productos.cs">
       <DependentUpon>DBTienda.tt</DependentUpon>
     </Compile>
@@ -115,13 +133,31 @@
     <Compile Include="Modelo\Stock.cs">
       <DependentUpon>DBTienda.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Usuarios.cs">
+      <DependentUpon>DBTienda.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAgregarProducto.resx">
+      <DependentUpon>FormAgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarProducto.resx">
+      <DependentUpon>FormEditarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormProductos.resx">
       <DependentUpon>FormProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProveedores.resx">
+      <DependentUpon>FormProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarios.resx">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

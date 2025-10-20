@@ -12,13 +12,14 @@ namespace ProyectoCatedraMDB.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class Stock
+    public partial class AuditoriaPrecioProductos
     {
-        public int IdStock { get; set; }
-        public Nullable<int> IdProducto { get; set; }
-        public int CantidadActual { get; set; }
-        public System.DateTime FechaActualizacion { get; set; }
-    
-        public virtual Productos Productos { get; set; }
+        public int IdAuditoria { get; set; }
+        public int IdProducto { get; set; }
+        public string NombreProducto { get; set; }
+        public decimal PrecioAnterior { get; set; }
+        public decimal PrecioNuevo { get; set; }
+        public Nullable<System.DateTime> FechaCambio { get; set; }
+        public string UsuarioCambio { get; set; }
     }
 }

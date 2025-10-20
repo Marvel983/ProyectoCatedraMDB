@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_TiendaMiguelitoModelStoreContainer" CdmEntityContainer="DB_TiendaMiguelitoEntities">
+    <EntitySetMapping Name="Categoria">
+      <EntityTypeMapping TypeName="DB_TiendaMiguelitoModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+          <ScalarProperty Name="Nombre_Categoria" ColumnName="Nombre_Categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingreso_Productos">
+      <EntityTypeMapping TypeName="DB_TiendaMiguelitoModel.Ingreso_Productos">
+        <MappingFragment StoreEntitySet="Ingreso_Productos">
+          <ScalarProperty Name="ID_Ingreso" ColumnName="ID_Ingreso" />
+          <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+          <ScalarProperty Name="ID_Proveedor" ColumnName="ID_Proveedor" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="Cantidad_Ingreso" ColumnName="Cantidad_Ingreso" />
+          <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="DB_TiendaMiguelitoModel.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+          <ScalarProperty Name="Nombre_Producto" ColumnName="Nombre_Producto" />
+          <ScalarProperty Name="Descripción_Prod" ColumnName="Descripción_Prod" />
+          <ScalarProperty Name="Precio_Prod" ColumnName="Precio_Prod" />
+          <ScalarProperty Name="Categoria_ID" ColumnName="Categoria_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedores">
+      <EntityTypeMapping TypeName="DB_TiendaMiguelitoModel.Proveedores">
+        <MappingFragment StoreEntitySet="Proveedores">
+          <ScalarProperty Name="ID_Proveedor" ColumnName="ID_Proveedor" />
+          <ScalarProperty Name="Nombre_Proveedor" ColumnName="Nombre_Proveedor" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stock">
+      <EntityTypeMapping TypeName="DB_TiendaMiguelitoModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="ID_Stock" ColumnName="ID_Stock" />
+          <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+          <ScalarProperty Name="Cantidad_Actual" ColumnName="Cantidad_Actual" />
+          <ScalarProperty Name="Fecha_Actualización" ColumnName="Fecha_Actualización" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="DB_TiendaMiguelitoModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
+          <ScalarProperty Name="Cargo_Usuario" ColumnName="Cargo_Usuario" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

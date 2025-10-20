@@ -1,0 +1,16 @@
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.csproj.AssemblyReference.cache
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormInicio.resources
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.Properties.Resources.resources
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.csproj.GenerateResource.cache
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.csproj.CoreCompileInputs.cache
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\bin\Debug\ProyectoCatedraMDB.exe.config
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\bin\Debug\ProyectoCatedraMDB.exe
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\bin\Debug\ProyectoCatedraMDB.pdb
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\bin\Debug\EntityFramework.dll
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\bin\Debug\EntityFramework.SqlServer.dll
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\bin\Debug\EntityFramework.xml
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\bin\Debug\EntityFramework.SqlServer.xml
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\Proyecto.C1EB596B.Up2Date
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.exe
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.pdb
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormProductos.resources

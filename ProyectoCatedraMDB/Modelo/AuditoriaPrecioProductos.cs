@@ -21,5 +21,7 @@ namespace ProyectoCatedraMDB.Modelo
         public decimal PrecioNuevo { get; set; }
         public Nullable<System.DateTime> FechaCambio { get; set; }
         public string UsuarioCambio { get; set; }
+    
+        public virtual Productos Productos { get; set; }
     }
 }

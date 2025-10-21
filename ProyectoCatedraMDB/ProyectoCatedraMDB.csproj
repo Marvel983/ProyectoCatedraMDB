@@ -64,11 +64,41 @@
     <Compile Include="FormAgregarProducto.Designer.cs">
       <DependentUpon>FormAgregarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAgregarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregarProveedor.Designer.cs">
+      <DependentUpon>FormAgregarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAgregarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgregarUsuarios.Designer.cs">
+      <DependentUpon>FormAgregarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAuditoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAuditoria.Designer.cs">
+      <DependentUpon>FormAuditoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEditarProducto.Designer.cs">
       <DependentUpon>FormEditarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarProveedor.Designer.cs">
+      <DependentUpon>FormEditarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarUsuarios.Designer.cs">
+      <DependentUpon>FormEditarUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="FormInicio.cs">
       <SubType>Form</SubType>
@@ -138,8 +168,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SesionUsuario.cs" />
     <EmbeddedResource Include="FormAgregarProducto.resx">
       <DependentUpon>FormAgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAuditoria.resx">
+      <DependentUpon>FormAuditoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditarProducto.resx">
       <DependentUpon>FormEditarProducto.cs</DependentUpon>
@@ -167,6 +201,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="Modelo\DBTienda.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -204,6 +239,8 @@
       <DependentUpon>DBTienda.edmx</DependentUpon>
       <LastGenOutput>DBTienda.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\4003665.png" />
+    <None Include="Resources\proveedores.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

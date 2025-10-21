@@ -1,11 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TiendaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AuditoriaPrecioProductos">
+    <Key>
+      <PropertyRef Name="IdAuditoria" />
+    </Key>
+    <Property Name="IdAuditoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="NombreProducto" Type="nvarchar" MaxLength="120" />
+    <Property Name="PrecioAnterior" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="PrecioNuevo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="FechaCambio" Type="datetime" />
+    <Property Name="UsuarioCambio" Type="nvarchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="Categoria">
     <Key>
       <PropertyRef Name="IdCategoria" />
     </Key>
     <Property Name="IdCategoria" Type="int" Nullable="false" />
     <Property Name="NombreCategoria" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="IngresoProductos">
+    <Key>
+      <PropertyRef Name="IdIngreso" />
+    </Key>
+    <Property Name="IdIngreso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="NombreProveedor" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CantidadIngreso" Type="int" Nullable="false" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Productos">
     <Key>
@@ -26,11 +49,47 @@
   </EntityType>
   <EntityType Name="Stock">
     <Key>
-      <PropertyRef Name="IdProducto" />
+      <PropertyRef Name="IdStock" />
     </Key>
-    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="IdStock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdProducto" Type="int" />
     <Property Name="CantidadActual" Type="int" Nullable="false" />
+    <Property Name="FechaActualizacion" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CargoUsuario" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contrasena" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Stock__IdProduct__60A75C0F">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AuditoriaProducto">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+    <End Role="AuditoriaPrecioProductos" Type="Self.AuditoriaPrecioProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="AuditoriaPrecioProductos">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_IdCategoria">
     <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
     <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
@@ -43,30 +102,73 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_StockProducto">
+  <Association Name="FK_IngresoProducto">
     <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
-    <End Role="Stock" Type="Self.Stock" Multiplicity="0..1" />
+    <End Role="IngresoProductos" Type="Self.IngresoProductos" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Productos">
         <PropertyRef Name="IdProducto" />
       </Principal>
-      <Dependent Role="Stock">
+      <Dependent Role="IngresoProductos">
         <PropertyRef Name="IdProducto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_IngresoProveedor">
+    <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
+    <End Role="IngresoProductos" Type="Self.IngresoProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedores">
+        <PropertyRef Name="NombreProveedor" />
+      </Principal>
+      <Dependent Role="IngresoProductos">
+        <PropertyRef Name="NombreProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IngresoUsuario">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="IngresoProductos" Type="Self.IngresoProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="IngresoProductos">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="TiendaModelStoreContainer">
+    <EntitySet Name="AuditoriaPrecioProductos" EntityType="Self.AuditoriaPrecioProductos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IngresoProductos" EntityType="Self.IngresoProductos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Stock__IdProduct__60A75C0F" Association="Self.FK__Stock__IdProduct__60A75C0F">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AuditoriaProducto" Association="Self.FK_AuditoriaProducto">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="AuditoriaPrecioProductos" EntitySet="AuditoriaPrecioProductos" />
+    </AssociationSet>
     <AssociationSet Name="FK_IdCategoria" Association="Self.FK_IdCategoria">
       <End Role="Categoria" EntitySet="Categoria" />
       <End Role="Productos" EntitySet="Productos" />
     </AssociationSet>
-    <AssociationSet Name="FK_StockProducto" Association="Self.FK_StockProducto">
+    <AssociationSet Name="FK_IngresoProducto" Association="Self.FK_IngresoProducto">
       <End Role="Productos" EntitySet="Productos" />
-      <End Role="Stock" EntitySet="Stock" />
+      <End Role="IngresoProductos" EntitySet="IngresoProductos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IngresoProveedor" Association="Self.FK_IngresoProveedor">
+      <End Role="Proveedores" EntitySet="Proveedores" />
+      <End Role="IngresoProductos" EntitySet="IngresoProductos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IngresoUsuario" Association="Self.FK_IngresoUsuario">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="IngresoProductos" EntitySet="IngresoProductos" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

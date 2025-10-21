@@ -47,14 +47,14 @@ CREATE TABLE IngresoProductos (
 
 CREATE TABLE AuditoriaPrecioProductos (
     IdAuditoria INT IDENTITY(1,1) PRIMARY KEY,
-    IdProducto INT NOT NULL,
+    IdProducto INT NOT NULL 
+        CONSTRAINT FK_AuditoriaProducto FOREIGN KEY REFERENCES Productos(IdProducto), 
     NombreProducto NVARCHAR(120),
     PrecioAnterior DECIMAL(10,2) NOT NULL,
     PrecioNuevo DECIMAL(10,2) NOT NULL,
     FechaCambio DATETIME DEFAULT GETDATE(),
     UsuarioCambio NVARCHAR(100) DEFAULT SUSER_SNAME()
 );
-GO
 
 /*DROP TABLE IngresoProductos;
 DROP TABLE AuditoriaPrecioProductos;
@@ -62,8 +62,8 @@ DROP TABLE Stock;
 DROP TABLE Productos;
 DROP TABLE Usuarios;
 DROP TABLE Categoria;
-DROP TABLE Proveedores;*/
-
+DROP TABLE Proveedores;
+*/
 
 INSERT INTO Proveedores (NombreProveedor, Contacto) VALUES
 ('Bebidas la Constancia S.A', 'Juan Pérez - 7555-1001'),

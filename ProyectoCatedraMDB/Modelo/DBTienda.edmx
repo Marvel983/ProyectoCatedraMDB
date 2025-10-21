@@ -83,6 +83,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_AuditoriaProducto">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="AuditoriaPrecioProductos" Type="Self.AuditoriaPrecioProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="AuditoriaPrecioProductos">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_IdCategoria">
           <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
           <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
@@ -143,6 +155,10 @@
             <End Role="Productos" EntitySet="Productos" />
             <End Role="Stock" EntitySet="Stock" />
           </AssociationSet>
+          <AssociationSet Name="FK_AuditoriaProducto" Association="Self.FK_AuditoriaProducto">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="AuditoriaPrecioProductos" EntitySet="AuditoriaPrecioProductos" />
+          </AssociationSet>
           <AssociationSet Name="FK_IdCategoria" Association="Self.FK_IdCategoria">
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="Productos" EntitySet="Productos" />
@@ -172,6 +188,10 @@
           <EntitySet Name="Proveedores" EntityType="TiendaModel.Proveedores" />
           <EntitySet Name="Stock" EntityType="TiendaModel.Stock" />
           <EntitySet Name="Usuarios" EntityType="TiendaModel.Usuarios" />
+          <AssociationSet Name="FK_AuditoriaProducto" Association="TiendaModel.FK_AuditoriaProducto">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="AuditoriaPrecioProductos" EntitySet="AuditoriaPrecioProductos" />
+          </AssociationSet>
           <AssociationSet Name="FK_IdCategoria" Association="TiendaModel.FK_IdCategoria">
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="Productos" EntitySet="Productos" />
@@ -204,6 +224,7 @@
           <Property Name="PrecioNuevo" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="FechaCambio" Type="DateTime" Precision="3" />
           <Property Name="UsuarioCambio" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Productos" Relationship="TiendaModel.FK_AuditoriaProducto" FromRole="AuditoriaPrecioProductos" ToRole="Productos" />
         </EntityType>
         <EntityType Name="Categoria">
           <Key>
@@ -236,6 +257,7 @@
           <Property Name="DescripciónProd" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="PrecioProd" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="IdCategoria" Type="Int32" />
+          <NavigationProperty Name="AuditoriaPrecioProductos" Relationship="TiendaModel.FK_AuditoriaProducto" FromRole="Productos" ToRole="AuditoriaPrecioProductos" />
           <NavigationProperty Name="Categoria" Relationship="TiendaModel.FK_IdCategoria" FromRole="Productos" ToRole="Categoria" />
           <NavigationProperty Name="IngresoProductos" Relationship="TiendaModel.FK_IngresoProducto" FromRole="Productos" ToRole="IngresoProductos" />
           <NavigationProperty Name="Stock" Relationship="TiendaModel.FK__Stock__IdProduct__60A75C0F" FromRole="Productos" ToRole="Stock" />
@@ -269,6 +291,18 @@
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="IngresoProductos" Relationship="TiendaModel.FK_IngresoUsuario" FromRole="Usuarios" ToRole="IngresoProductos" />
         </EntityType>
+        <Association Name="FK_AuditoriaProducto">
+          <End Type="TiendaModel.Productos" Role="Productos" Multiplicity="1" />
+          <End Type="TiendaModel.AuditoriaPrecioProductos" Role="AuditoriaPrecioProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="AuditoriaPrecioProductos">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_IdCategoria">
           <End Type="TiendaModel.Categoria" Role="Categoria" Multiplicity="0..1" />
           <End Type="TiendaModel.Productos" Role="Productos" Multiplicity="*" />
@@ -329,7 +363,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

@@ -3,8 +3,32 @@
   "WorkspaceRootPath": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\proyectocatedramdb\\formagregarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|d:\\udb\\proyectos c#\\proyectocatedramdb\\proyectocatedramdb\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|d:\\udb\\proyectos c#\\proyectocatedramdb\\proyectocatedramdb\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|d:\\udb\\proyectos c#\\proyectocatedramdb\\proyectocatedramdb\\formagregarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\formagregarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|d:\\udb\\proyectos c#\\proyectocatedramdb\\proyectocatedramdb\\formeditarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\formeditarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|d:\\udb\\proyectos c#\\proyectocatedramdb\\proyectocatedramdb\\formagregarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\formagregarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|d:\\udb\\proyectos c#\\proyectocatedramdb\\proyectocatedramdb\\forminicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\forminicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|d:\\udb\\proyectos c#\\proyectocatedramdb\\proyectocatedramdb\\forminicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\forminicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|d:\\udb\\proyectos c#\\proyectocatedramdb\\proyectocatedramdb\\formeditarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -15,12 +39,12 @@
       "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\formproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\proyectocatedramdb\\forminicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\forminicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\proyectocatedramdb\\formproveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\formproveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\proyectocatedramdb\\modelo\\dbtienda.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\modelo\\dbtienda.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+      "AbsoluteMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|d:\\udb\\proyectos c#\\proyectocatedramdb\\proyectocatedramdb\\formproveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EEB074A-5E5C-4605-AC15-58C57BA638C4}|ProyectoCatedraMDB\\ProyectoCatedraMDB.csproj|solutionrelative:proyectocatedramdb\\formproveedores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,45 +54,134 @@
       "DocumentGroups": [
         {
           "DockedHeight": 290,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "FormInicio.cs [Dise\u00F1o]",
               "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormInicio.cs",
               "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormInicio.cs",
               "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormInicio.cs [Dise\u00F1o]",
               "RelativeToolTip": "ProyectoCatedraMDB\\FormInicio.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T03:01:55.027Z",
+              "WhenOpened": "2025-10-21T02:51:01.059Z",
               "IsPinned": true,
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DBTienda.edmx [Diagram1]",
-              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\Modelo\\DBTienda.edmx",
-              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\Modelo\\DBTienda.edmx",
-              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\Modelo\\DBTienda.edmx [Diagram1]",
-              "RelativeToolTip": "ProyectoCatedraMDB\\Modelo\\DBTienda.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-10-20T03:40:58.554Z",
+              "DocumentIndex": 6,
+              "Title": "FormInicio.cs",
+              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormInicio.cs",
+              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormInicio.cs",
+              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormInicio.cs",
+              "RelativeToolTip": "ProyectoCatedraMDB\\FormInicio.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAwwBIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T02:52:25.678Z",
               "IsPinned": true,
-              "EditorCaption": " [Diagram1]"
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormLogin.cs",
+              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormLogin.cs",
+              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormLogin.cs",
+              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormLogin.cs",
+              "RelativeToolTip": "ProyectoCatedraMDB\\FormLogin.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAQwFMAAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T05:06:10.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormLogin.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormLogin.cs",
+              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormLogin.cs",
+              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormLogin.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ProyectoCatedraMDB\\FormLogin.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T05:06:08.084Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormEditarProducto.cs",
+              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormEditarProducto.cs",
+              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormEditarProducto.cs",
+              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormEditarProducto.cs",
+              "RelativeToolTip": "ProyectoCatedraMDB\\FormEditarProducto.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAwwHoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T04:51:31.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormEditarProducto.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormEditarProducto.cs",
+              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormEditarProducto.cs",
+              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormEditarProducto.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ProyectoCatedraMDB\\FormEditarProducto.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T04:45:18.383Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "FormAgregarProducto.cs",
+              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormAgregarProducto.cs",
+              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormAgregarProducto.cs",
+              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormAgregarProducto.cs",
+              "RelativeToolTip": "ProyectoCatedraMDB\\FormAgregarProducto.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAAAIQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T04:43:54.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormAgregarProducto.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormAgregarProducto.cs",
+              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormAgregarProducto.cs",
+              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormAgregarProducto.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ProyectoCatedraMDB\\FormAgregarProducto.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T04:43:27.11Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "FormProductos.cs [Dise\u00F1o]",
               "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormProductos.cs",
               "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormProductos.cs",
               "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormProductos.cs [Dise\u00F1o]",
               "RelativeToolTip": "ProyectoCatedraMDB\\FormProductos.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T20:11:03.02Z",
+              "WhenOpened": "2025-10-21T04:38:06.537Z",
               "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "FormProveedores.cs",
+              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormProveedores.cs",
+              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormProveedores.cs",
+              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormProveedores.cs",
+              "RelativeToolTip": "ProyectoCatedraMDB\\FormProveedores.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAwwBIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T04:36:52.638Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -96,26 +209,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormEditarProducto.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormEditarProducto.cs",
-              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormEditarProducto.cs",
-              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormEditarProducto.cs [Dise\u00F1o]",
-              "RelativeToolTip": "ProyectoCatedraMDB\\FormEditarProducto.cs [Dise\u00F1o]",
+              "DocumentIndex": 9,
+              "Title": "FormProveedores.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormProveedores.cs",
+              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormProveedores.cs",
+              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormProveedores.cs [Dise\u00F1o]",
+              "RelativeToolTip": "ProyectoCatedraMDB\\FormProveedores.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T03:45:01.81Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FormAgregarProducto.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormAgregarProducto.cs",
-              "RelativeDocumentMoniker": "ProyectoCatedraMDB\\FormAgregarProducto.cs",
-              "ToolTip": "D:\\UDB\\Proyectos C#\\ProyectoCatedraMDB\\ProyectoCatedraMDB\\FormAgregarProducto.cs [Dise\u00F1o]",
-              "RelativeToolTip": "ProyectoCatedraMDB\\FormAgregarProducto.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T03:44:47.718Z",
+              "WhenOpened": "2025-10-20T20:32:34.57Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

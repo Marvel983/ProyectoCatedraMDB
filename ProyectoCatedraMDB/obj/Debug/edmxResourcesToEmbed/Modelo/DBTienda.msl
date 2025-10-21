@@ -1,38 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TiendaModelStoreContainer" CdmEntityContainer="DBTiendaEntities">
+    <EntitySetMapping Name="AuditoriaPrecioProductos">
+      <EntityTypeMapping TypeName="TiendaModel.AuditoriaPrecioProductos">
+        <MappingFragment StoreEntitySet="AuditoriaPrecioProductos">
+          <ScalarProperty Name="UsuarioCambio" ColumnName="UsuarioCambio" />
+          <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
+          <ScalarProperty Name="PrecioNuevo" ColumnName="PrecioNuevo" />
+          <ScalarProperty Name="PrecioAnterior" ColumnName="PrecioAnterior" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="IdAuditoria" ColumnName="IdAuditoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Categoria">
       <EntityTypeMapping TypeName="TiendaModel.Categoria">
         <MappingFragment StoreEntitySet="Categoria">
-          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
           <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IngresoProductos">
+      <EntityTypeMapping TypeName="TiendaModel.IngresoProductos">
+        <MappingFragment StoreEntitySet="IngresoProductos">
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="CantidadIngreso" ColumnName="CantidadIngreso" />
+          <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="IdIngreso" ColumnName="IdIngreso" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Productos">
       <EntityTypeMapping TypeName="TiendaModel.Productos">
         <MappingFragment StoreEntitySet="Productos">
-          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
-          <ScalarProperty Name="DescripciónProd" ColumnName="DescripciónProd" />
-          <ScalarProperty Name="PrecioProd" ColumnName="PrecioProd" />
           <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+          <ScalarProperty Name="PrecioProd" ColumnName="PrecioProd" />
+          <ScalarProperty Name="DescripciónProd" ColumnName="DescripciónProd" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedores">
       <EntityTypeMapping TypeName="TiendaModel.Proveedores">
         <MappingFragment StoreEntitySet="Proveedores">
-          <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
           <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Stock">
       <EntityTypeMapping TypeName="TiendaModel.Stock">
         <MappingFragment StoreEntitySet="Stock">
-          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
           <ScalarProperty Name="CantidadActual" ColumnName="CantidadActual" />
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="IdStock" ColumnName="IdStock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="TiendaModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="CargoUsuario" ColumnName="CargoUsuario" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

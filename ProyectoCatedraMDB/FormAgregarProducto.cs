@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoCatedraMDB.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,148 @@ namespace ProyectoCatedraMDB
         {
             InitializeComponent();
         }
+
+        private void FormAgregarProducto_Load(object sender, EventArgs e)
+        {
+            CargarCategorias();
+            CargarProveedores();
+        }
+
+        private void CargarCategorias()
+        {
+            using (DBTiendaEntities db = new DBTiendaEntities())
+            {
+                var categorias = db.Categoria.ToList();
+                cbCategoria.DataSource = categorias;
+                cbCategoria.DisplayMember = "NombreCategoria";
+                cbCategoria.ValueMember = "IdCategoria";
+                if (cbCategoria.Items.Count > 0)
+                {
+                    cbCategoria.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void CargarProveedores()
+        {
+            using (DBTiendaEntities db = new DBTiendaEntities())
+            {
+                var proveedores = db.Proveedores
+                                   .Select(p => new {
+                                       Nombre = p.NombreProveedor,
+                                       // Si Proveedores tiene IdProveedor, úsalo aquí
+                                   })
+                                   .ToList();
+
+                cbProveedor.DataSource = proveedores;
+                cbProveedor.DisplayMember = "Nombre"; // Asumiendo que quieres mostrar el nombre
+                cbProveedor.ValueMember = "Nombre";   // Ya que la FK en IngresoProductos usa NombreProveedor
+            }
+        }
+
+        //Botones
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
+                string.IsNullOrWhiteSpace(txtPrecio.Text) ||
+                cbCategoria.SelectedValue == null)
+            {
+                MessageBox.Show("Por favor, complete todos los campos y seleccione una categoría.", "Campos Faltantes",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (nudStock.Value <= 0)
+            {
+                MessageBox.Show("La cantidad de stock inicial debe ser mayor a cero.", "Validación",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cbProveedor.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar un proveedor.", "Validación",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrecio.Text, out decimal precio))
+            {
+                MessageBox.Show("El precio ingresado no es un formato numérico válido.", "Error de Formato",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int idCategoriaSeleccionada = (int)cbCategoria.SelectedValue;
+            int cantidadIngreso = (int)nudStock.Value;
+            string nombreProveedor = cbProveedor.SelectedValue.ToString();
+            int idUsuarioLogueado = SesionUsuario.IdEmpleado;
+
+            try
+            {
+                using (DBTiendaEntities db = new DBTiendaEntities())
+                {
+                    Productos nuevoProducto = new Productos
+                    {
+                        NombreProducto = txtNombre.Text.Trim(),
+                        DescripciónProd = txtDescripcion.Text.Trim(),
+                        PrecioProd = precio,
+                        IdCategoria = idCategoriaSeleccionada
+                    };
+
+                    db.Productos.Add(nuevoProducto);
+                    db.SaveChanges(); 
+
+                    IngresoProductos nuevoIngreso = new IngresoProductos
+                    {
+                        IdProducto = nuevoProducto.IdProducto, 
+                        NombreProveedor = nombreProveedor,
+                        CantidadIngreso = cantidadIngreso,
+                        IdUsuario = idUsuarioLogueado,
+                        FechaIngreso = DateTime.Now
+                    };
+
+                    db.IngresoProductos.Add(nuevoIngreso);
+                    db.SaveChanges(); 
+
+                    MessageBox.Show("Producto y registro de stock inicial agregado exitosamente.", "Éxito",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensajeError = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
+                MessageBox.Show("Error al guardar el producto: " + mensajeError, "Error de DB",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            pnlBody.Controls.Clear();
+
+            FormProductos frm = new FormProductos();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlBody.Controls.Add(frm);
+
+            frm.Show();
+        }
+        
+        // Limpiar los campos
+        private void LimpiarCampos()
+        {
+            txtNombre.Clear();
+            txtDescripcion.Clear();
+            txtPrecio.Clear();
+            cbCategoria.SelectedIndex = 0;
+            txtNombre.Focus();
+        }
+
+        // Sin funciones
+        private void label7_Click(object sender, EventArgs e) { }
+        private void gb_Agregar_Producto_Enter(object sender, EventArgs e){}
     }
 }

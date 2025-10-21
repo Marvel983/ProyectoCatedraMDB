@@ -4,14 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8d9173bd2bbb4c76ac5c27ac339e43ef" Name="Diagram1" ZoomLevel="112">
-        <EntityTypeShape EntityType="TiendaModel.AuditoriaPrecioProductos" Width="1.5" PointX="4.375" PointY="6.875" />
-        <EntityTypeShape EntityType="TiendaModel.Categoria" Width="1.5" PointX="2.375" PointY="4" />
-        <EntityTypeShape EntityType="TiendaModel.IngresoProductos" Width="1.5" PointX="9.875" PointY="3.375" />
-        <EntityTypeShape EntityType="TiendaModel.Productos" Width="1.5" PointX="4.625" PointY="3.5" />
-        <EntityTypeShape EntityType="TiendaModel.Proveedores" Width="1.5" PointX="9.875" PointY="6.75" />
-        <EntityTypeShape EntityType="TiendaModel.Stock" Width="1.5" PointX="6.875" PointY="3.75" />
-        <EntityTypeShape EntityType="TiendaModel.Usuarios" Width="1.5" PointX="7.625" PointY="6.875" />
+      <Diagram DiagramId="8d9173bd2bbb4c76ac5c27ac339e43ef" Name="Diagram1" ZoomLevel="84">
+        <EntityTypeShape EntityType="TiendaModel.AuditoriaPrecioProductos" Width="1.5" PointX="5.25" PointY="9.25" />
+        <EntityTypeShape EntityType="TiendaModel.Categoria" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="TiendaModel.IngresoProductos" Width="1.5" PointX="5.25" PointY="2.25" />
+        <EntityTypeShape EntityType="TiendaModel.Productos" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="TiendaModel.Proveedores" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="TiendaModel.Stock" Width="1.5" PointX="5.25" PointY="6.5" />
+        <EntityTypeShape EntityType="TiendaModel.Usuarios" Width="1.5" PointX="3" PointY="9.75" />
+        <AssociationConnector Association="TiendaModel.FK_AuditoriaProducto" />
         <AssociationConnector Association="TiendaModel.FK_IdCategoria" />
         <AssociationConnector Association="TiendaModel.FK_IngresoProducto" />
         <AssociationConnector Association="TiendaModel.FK_IngresoProveedor" />

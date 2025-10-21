@@ -5,23 +5,11 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="TiendaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AuditoriaPrecioProductos">
-          <Key>
-            <PropertyRef Name="IdAuditoria" />
-          </Key>
-          <Property Name="IdAuditoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdProducto" Type="int" Nullable="false" />
-          <Property Name="NombreProducto" Type="nvarchar" MaxLength="120" />
-          <Property Name="PrecioAnterior" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="PrecioNuevo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="FechaCambio" Type="datetime" />
-          <Property Name="UsuarioCambio" Type="nvarchar" MaxLength="100" />
-        </EntityType>
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="IdCategoria" />
           </Key>
-          <Property Name="IdCategoria" Type="int" Nullable="false" />
+          <Property Name="IdCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NombreCategoria" Type="nvarchar" MaxLength="60" />
         </EntityType>
         <EntityType Name="IngresoProductos">
@@ -30,7 +18,7 @@
           </Key>
           <Property Name="IdIngreso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdProducto" Type="int" Nullable="false" />
-          <Property Name="NombreProveedor" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdProveedor" Type="int" Nullable="false" />
           <Property Name="CantidadIngreso" Type="int" Nullable="false" />
           <Property Name="IdUsuario" Type="int" Nullable="false" />
           <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
@@ -41,15 +29,16 @@
           </Key>
           <Property Name="IdProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NombreProducto" Type="nvarchar" MaxLength="120" />
-          <Property Name="DescripciónProd" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="DescripcionProd" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="PrecioProd" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="IdCategoria" Type="int" />
         </EntityType>
         <EntityType Name="Proveedores">
           <Key>
-            <PropertyRef Name="NombreProveedor" />
+            <PropertyRef Name="IdProveedor" />
           </Key>
-          <Property Name="NombreProveedor" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreProveedor" Type="nvarchar" MaxLength="100" />
           <Property Name="Contacto" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Stock">
@@ -61,6 +50,16 @@
           <Property Name="CantidadActual" Type="int" Nullable="false" />
           <Property Name="FechaActualizacion" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="IdUsuario" />
@@ -71,7 +70,7 @@
           <Property Name="Contrasena" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Activo" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Stock__IdProduct__60A75C0F">
+        <Association Name="FK__Stock__IdProduct__2DB1C7EE">
           <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
           <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
           <ReferentialConstraint>
@@ -79,18 +78,6 @@
               <PropertyRef Name="IdProducto" />
             </Principal>
             <Dependent Role="Stock">
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AuditoriaProducto">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
-          <End Role="AuditoriaPrecioProductos" Type="Self.AuditoriaPrecioProductos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Productos">
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="AuditoriaPrecioProductos">
               <PropertyRef Name="IdProducto" />
             </Dependent>
           </ReferentialConstraint>
@@ -124,10 +111,10 @@
           <End Role="IngresoProductos" Type="Self.IngresoProductos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Proveedores">
-              <PropertyRef Name="NombreProveedor" />
+              <PropertyRef Name="IdProveedor" />
             </Principal>
             <Dependent Role="IngresoProductos">
-              <PropertyRef Name="NombreProveedor" />
+              <PropertyRef Name="IdProveedor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -144,20 +131,16 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TiendaModelStoreContainer">
-          <EntitySet Name="AuditoriaPrecioProductos" EntityType="Self.AuditoriaPrecioProductos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IngresoProductos" EntityType="Self.IngresoProductos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Stock__IdProduct__60A75C0F" Association="Self.FK__Stock__IdProduct__60A75C0F">
+          <AssociationSet Name="FK__Stock__IdProduct__2DB1C7EE" Association="Self.FK__Stock__IdProduct__2DB1C7EE">
             <End Role="Productos" EntitySet="Productos" />
             <End Role="Stock" EntitySet="Stock" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AuditoriaProducto" Association="Self.FK_AuditoriaProducto">
-            <End Role="Productos" EntitySet="Productos" />
-            <End Role="AuditoriaPrecioProductos" EntitySet="AuditoriaPrecioProductos" />
           </AssociationSet>
           <AssociationSet Name="FK_IdCategoria" Association="Self.FK_IdCategoria">
             <End Role="Categoria" EntitySet="Categoria" />
@@ -181,17 +164,13 @@
     <edmx:ConceptualModels>
       <Schema Namespace="TiendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DBTiendaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AuditoriaPrecioProductos" EntityType="TiendaModel.AuditoriaPrecioProductos" />
           <EntitySet Name="Categoria" EntityType="TiendaModel.Categoria" />
           <EntitySet Name="IngresoProductos" EntityType="TiendaModel.IngresoProductos" />
           <EntitySet Name="Productos" EntityType="TiendaModel.Productos" />
           <EntitySet Name="Proveedores" EntityType="TiendaModel.Proveedores" />
           <EntitySet Name="Stock" EntityType="TiendaModel.Stock" />
+          <EntitySet Name="sysdiagrams" EntityType="TiendaModel.sysdiagrams" />
           <EntitySet Name="Usuarios" EntityType="TiendaModel.Usuarios" />
-          <AssociationSet Name="FK_AuditoriaProducto" Association="TiendaModel.FK_AuditoriaProducto">
-            <End Role="Productos" EntitySet="Productos" />
-            <End Role="AuditoriaPrecioProductos" EntitySet="AuditoriaPrecioProductos" />
-          </AssociationSet>
           <AssociationSet Name="FK_IdCategoria" Association="TiendaModel.FK_IdCategoria">
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="Productos" EntitySet="Productos" />
@@ -208,29 +187,16 @@
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="IngresoProductos" EntitySet="IngresoProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Stock__IdProduct__60A75C0F" Association="TiendaModel.FK__Stock__IdProduct__60A75C0F">
+          <AssociationSet Name="FK__Stock__IdProduct__2DB1C7EE" Association="TiendaModel.FK__Stock__IdProduct__2DB1C7EE">
             <End Role="Productos" EntitySet="Productos" />
             <End Role="Stock" EntitySet="Stock" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="AuditoriaPrecioProductos">
-          <Key>
-            <PropertyRef Name="IdAuditoria" />
-          </Key>
-          <Property Name="IdAuditoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdProducto" Type="Int32" Nullable="false" />
-          <Property Name="NombreProducto" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Name="PrecioAnterior" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="PrecioNuevo" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="FechaCambio" Type="DateTime" Precision="3" />
-          <Property Name="UsuarioCambio" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Productos" Relationship="TiendaModel.FK_AuditoriaProducto" FromRole="AuditoriaPrecioProductos" ToRole="Productos" />
-        </EntityType>
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="IdCategoria" />
           </Key>
-          <Property Name="IdCategoria" Type="Int32" Nullable="false" />
+          <Property Name="IdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreCategoria" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Productos" Relationship="TiendaModel.FK_IdCategoria" FromRole="Categoria" ToRole="Productos" />
         </EntityType>
@@ -240,7 +206,7 @@
           </Key>
           <Property Name="IdIngreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdProducto" Type="Int32" Nullable="false" />
-          <Property Name="NombreProveedor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" />
           <Property Name="CantidadIngreso" Type="Int32" Nullable="false" />
           <Property Name="IdUsuario" Type="Int32" Nullable="false" />
           <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
@@ -254,19 +220,19 @@
           </Key>
           <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreProducto" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Name="DescripciónProd" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DescripcionProd" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="PrecioProd" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="IdCategoria" Type="Int32" />
-          <NavigationProperty Name="AuditoriaPrecioProductos" Relationship="TiendaModel.FK_AuditoriaProducto" FromRole="Productos" ToRole="AuditoriaPrecioProductos" />
           <NavigationProperty Name="Categoria" Relationship="TiendaModel.FK_IdCategoria" FromRole="Productos" ToRole="Categoria" />
           <NavigationProperty Name="IngresoProductos" Relationship="TiendaModel.FK_IngresoProducto" FromRole="Productos" ToRole="IngresoProductos" />
-          <NavigationProperty Name="Stock" Relationship="TiendaModel.FK__Stock__IdProduct__60A75C0F" FromRole="Productos" ToRole="Stock" />
+          <NavigationProperty Name="Stock" Relationship="TiendaModel.FK__Stock__IdProduct__2DB1C7EE" FromRole="Productos" ToRole="Stock" />
         </EntityType>
         <EntityType Name="Proveedores">
           <Key>
-            <PropertyRef Name="NombreProveedor" />
+            <PropertyRef Name="IdProveedor" />
           </Key>
-          <Property Name="NombreProveedor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreProveedor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="IngresoProductos" Relationship="TiendaModel.FK_IngresoProveedor" FromRole="Proveedores" ToRole="IngresoProductos" />
         </EntityType>
@@ -278,7 +244,17 @@
           <Property Name="IdProducto" Type="Int32" />
           <Property Name="CantidadActual" Type="Int32" Nullable="false" />
           <Property Name="FechaActualizacion" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Productos" Relationship="TiendaModel.FK__Stock__IdProduct__60A75C0F" FromRole="Stock" ToRole="Productos" />
+          <NavigationProperty Name="Productos" Relationship="TiendaModel.FK__Stock__IdProduct__2DB1C7EE" FromRole="Stock" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -291,18 +267,6 @@
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="IngresoProductos" Relationship="TiendaModel.FK_IngresoUsuario" FromRole="Usuarios" ToRole="IngresoProductos" />
         </EntityType>
-        <Association Name="FK_AuditoriaProducto">
-          <End Type="TiendaModel.Productos" Role="Productos" Multiplicity="1" />
-          <End Type="TiendaModel.AuditoriaPrecioProductos" Role="AuditoriaPrecioProductos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Productos">
-              <PropertyRef Name="IdProducto" />
-            </Principal>
-            <Dependent Role="AuditoriaPrecioProductos">
-              <PropertyRef Name="IdProducto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_IdCategoria">
           <End Type="TiendaModel.Categoria" Role="Categoria" Multiplicity="0..1" />
           <End Type="TiendaModel.Productos" Role="Productos" Multiplicity="*" />
@@ -332,10 +296,10 @@
           <End Type="TiendaModel.IngresoProductos" Role="IngresoProductos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Proveedores">
-              <PropertyRef Name="NombreProveedor" />
+              <PropertyRef Name="IdProveedor" />
             </Principal>
             <Dependent Role="IngresoProductos">
-              <PropertyRef Name="NombreProveedor" />
+              <PropertyRef Name="IdProveedor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -351,7 +315,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Stock__IdProduct__60A75C0F">
+        <Association Name="FK__Stock__IdProduct__2DB1C7EE">
           <End Type="TiendaModel.Productos" Role="Productos" Multiplicity="0..1" />
           <End Type="TiendaModel.Stock" Role="Stock" Multiplicity="*" />
           <ReferentialConstraint>
@@ -369,19 +333,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TiendaModelStoreContainer" CdmEntityContainer="DBTiendaEntities">
-          <EntitySetMapping Name="AuditoriaPrecioProductos">
-            <EntityTypeMapping TypeName="TiendaModel.AuditoriaPrecioProductos">
-              <MappingFragment StoreEntitySet="AuditoriaPrecioProductos">
-                <ScalarProperty Name="UsuarioCambio" ColumnName="UsuarioCambio" />
-                <ScalarProperty Name="FechaCambio" ColumnName="FechaCambio" />
-                <ScalarProperty Name="PrecioNuevo" ColumnName="PrecioNuevo" />
-                <ScalarProperty Name="PrecioAnterior" ColumnName="PrecioAnterior" />
-                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
-                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-                <ScalarProperty Name="IdAuditoria" ColumnName="IdAuditoria" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Categoria">
             <EntityTypeMapping TypeName="TiendaModel.Categoria">
               <MappingFragment StoreEntitySet="Categoria">
@@ -396,7 +347,7 @@
                 <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
                 <ScalarProperty Name="CantidadIngreso" ColumnName="CantidadIngreso" />
-                <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
                 <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
                 <ScalarProperty Name="IdIngreso" ColumnName="IdIngreso" />
               </MappingFragment>
@@ -407,7 +358,7 @@
               <MappingFragment StoreEntitySet="Productos">
                 <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
                 <ScalarProperty Name="PrecioProd" ColumnName="PrecioProd" />
-                <ScalarProperty Name="DescripciónProd" ColumnName="DescripciónProd" />
+                <ScalarProperty Name="DescripcionProd" ColumnName="DescripcionProd" />
                 <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
                 <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
               </MappingFragment>
@@ -418,6 +369,7 @@
               <MappingFragment StoreEntitySet="Proveedores">
                 <ScalarProperty Name="Contacto" ColumnName="Contacto" />
                 <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -428,6 +380,17 @@
                 <ScalarProperty Name="CantidadActual" ColumnName="CantidadActual" />
                 <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
                 <ScalarProperty Name="IdStock" ColumnName="IdStock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TiendaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

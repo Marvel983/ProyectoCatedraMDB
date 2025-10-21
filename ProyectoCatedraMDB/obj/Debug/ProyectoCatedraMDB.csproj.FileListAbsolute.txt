@@ -6,7 +6,6 @@ D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\bin\Debug\EntityFramew
 D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\bin\Debug\EntityFramework.SqlServer.xml
 D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.csproj.AssemblyReference.cache
 D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormAgregarProducto.resources
-D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormAuditoria.resources
 D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormEditarProducto.resources
 D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormInicio.resources
 D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormLogin.resources
@@ -20,3 +19,7 @@ D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\Proyecto.C1E
 D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.exe
 D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.pdb
 D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\bin\Debug\ProyectoCatedraMDB.pdb
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormAgregarProveedor.resources
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormAgregarUsuarios.resources
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormEditarProveedor.resources
+D:\UDB\Proyectos C#\ProyectoCatedraMDB\ProyectoCatedraMDB\obj\Debug\ProyectoCatedraMDB.FormEditarUsuarios.resources

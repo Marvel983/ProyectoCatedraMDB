@@ -31,6 +31,10 @@
             this.pnlBody = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.gb_Agregar_Producto = new System.Windows.Forms.GroupBox();
+            this.cbProveedor = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.nudStock = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -42,10 +46,6 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nudStock = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbProveedor = new System.Windows.Forms.ComboBox();
             this.pnlBody.SuspendLayout();
             this.gb_Agregar_Producto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
@@ -99,6 +99,52 @@
             this.gb_Agregar_Producto.TabStop = false;
             this.gb_Agregar_Producto.Text = "Agregar";
             this.gb_Agregar_Producto.Enter += new System.EventHandler(this.gb_Agregar_Producto_Enter);
+            // 
+            // cbProveedor
+            // 
+            this.cbProveedor.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.cbProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProveedor.FormattingEnabled = true;
+            this.cbProveedor.Items.AddRange(new object[] {
+            "Lacteos",
+            "Carmes",
+            "Verduras",
+            "Frutas",
+            "Cereales",
+            "Desinfectantes",
+            "Enlatatos"});
+            this.cbProveedor.Location = new System.Drawing.Point(394, 62);
+            this.cbProveedor.Name = "cbProveedor";
+            this.cbProveedor.Size = new System.Drawing.Size(151, 29);
+            this.cbProveedor.TabIndex = 32;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(294, 62);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 21);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "Proveedor:";
+            // 
+            // nudStock
+            // 
+            this.nudStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudStock.Location = new System.Drawing.Point(394, 109);
+            this.nudStock.Name = "nudStock";
+            this.nudStock.Size = new System.Drawing.Size(71, 29);
+            this.nudStock.TabIndex = 30;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(296, 114);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 21);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Cantidad:";
             // 
             // txtPrecio
             // 
@@ -220,52 +266,6 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 25);
             this.label2.TabIndex = 17;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(296, 114);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 21);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Cantidad:";
-            // 
-            // nudStock
-            // 
-            this.nudStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudStock.Location = new System.Drawing.Point(394, 109);
-            this.nudStock.Name = "nudStock";
-            this.nudStock.Size = new System.Drawing.Size(71, 29);
-            this.nudStock.TabIndex = 30;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(294, 62);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 21);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "Proveedor:";
-            // 
-            // cbProveedor
-            // 
-            this.cbProveedor.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.cbProveedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProveedor.FormattingEnabled = true;
-            this.cbProveedor.Items.AddRange(new object[] {
-            "Lacteos",
-            "Carmes",
-            "Verduras",
-            "Frutas",
-            "Cereales",
-            "Desinfectantes",
-            "Enlatatos"});
-            this.cbProveedor.Location = new System.Drawing.Point(394, 62);
-            this.cbProveedor.Name = "cbProveedor";
-            this.cbProveedor.Size = new System.Drawing.Size(151, 29);
-            this.cbProveedor.TabIndex = 32;
             // 
             // FormAgregarProducto
             // 

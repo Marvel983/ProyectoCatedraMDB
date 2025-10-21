@@ -44,15 +44,15 @@ namespace ProyectoCatedraMDB
             using (DBTiendaEntities db = new DBTiendaEntities())
             {
                 var proveedores = db.Proveedores
-                                   .Select(p => new {
-                                       Nombre = p.NombreProveedor,
-                                       // Si Proveedores tiene IdProveedor, úsalo aquí
-                                   })
-                                   .ToList();
+                                     .Select(p => new {
+                                         ID = p.IdProveedor,
+                                         Nombre = p.NombreProveedor,
+                                     })
+                                     .ToList();
 
                 cbProveedor.DataSource = proveedores;
-                cbProveedor.DisplayMember = "Nombre"; // Asumiendo que quieres mostrar el nombre
-                cbProveedor.ValueMember = "Nombre";   // Ya que la FK en IngresoProductos usa NombreProveedor
+                cbProveedor.DisplayMember = "Nombre"; 
+                cbProveedor.ValueMember = "ID";       
             }
         }
 
@@ -91,8 +91,25 @@ namespace ProyectoCatedraMDB
 
             int idCategoriaSeleccionada = (int)cbCategoria.SelectedValue;
             int cantidadIngreso = (int)nudStock.Value;
-            string nombreProveedor = cbProveedor.SelectedValue.ToString();
+
+            int idProveedorSeleccionado;
+            try
+            {
+                idProveedorSeleccionado = (int)cbProveedor.SelectedValue;
+            }
+            catch (InvalidCastException)
+            {
+                MessageBox.Show("Error al obtener el ID del proveedor. Asegúrese de que el ComboBox esté configurado correctamente.", "Error de Configuración", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int idUsuarioLogueado = SesionUsuario.IdEmpleado;
+            if (idUsuarioLogueado <= 0)
+            {
+                MessageBox.Show("Error de seguridad: No se pudo identificar al usuario logueado. Por favor, reinicie la aplicación e inicie sesión.",
+                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             try
             {
@@ -101,35 +118,52 @@ namespace ProyectoCatedraMDB
                     Productos nuevoProducto = new Productos
                     {
                         NombreProducto = txtNombre.Text.Trim(),
-                        DescripciónProd = txtDescripcion.Text.Trim(),
+                        DescripcionProd = txtDescripcion.Text.Trim(),
                         PrecioProd = precio,
                         IdCategoria = idCategoriaSeleccionada
                     };
 
                     db.Productos.Add(nuevoProducto);
-                    db.SaveChanges(); 
+                    db.SaveChanges();
+
+                    Stock nuevoStock = new Stock
+                    {
+                        IdProducto = nuevoProducto.IdProducto,
+                        CantidadActual = cantidadIngreso,
+                        FechaActualizacion = DateTime.Now
+                    };
+
+                    db.Stock.Add(nuevoStock);
 
                     IngresoProductos nuevoIngreso = new IngresoProductos
                     {
-                        IdProducto = nuevoProducto.IdProducto, 
-                        NombreProveedor = nombreProveedor,
+                        IdProducto = nuevoProducto.IdProducto,
+                        IdProveedor = idProveedorSeleccionado,
                         CantidadIngreso = cantidadIngreso,
                         IdUsuario = idUsuarioLogueado,
                         FechaIngreso = DateTime.Now
                     };
 
                     db.IngresoProductos.Add(nuevoIngreso);
-                    db.SaveChanges(); 
+                    db.SaveChanges();
 
                     MessageBox.Show("Producto y registro de stock inicial agregado exitosamente.", "Éxito",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos();
                 }
             }
             catch (Exception ex)
             {
-                string mensajeError = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
-                MessageBox.Show("Error al guardar el producto: " + mensajeError, "Error de DB",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string mensajeError = "Error al guardar el producto: ";
+                if (ex.InnerException != null && ex.InnerException.InnerException != null)
+                {
+                    mensajeError += ex.InnerException.InnerException.Message;
+                }
+                else
+                {
+                    mensajeError += ex.Message;
+                }
+                MessageBox.Show(mensajeError, "Error de DB", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnRegresar_Click(object sender, EventArgs e)

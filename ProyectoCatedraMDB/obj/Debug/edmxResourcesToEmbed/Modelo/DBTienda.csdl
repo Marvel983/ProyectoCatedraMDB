@@ -1,17 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TiendaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="DBTiendaEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="AuditoriaPrecioProductos" EntityType="TiendaModel.AuditoriaPrecioProductos" />
     <EntitySet Name="Categoria" EntityType="TiendaModel.Categoria" />
     <EntitySet Name="IngresoProductos" EntityType="TiendaModel.IngresoProductos" />
     <EntitySet Name="Productos" EntityType="TiendaModel.Productos" />
     <EntitySet Name="Proveedores" EntityType="TiendaModel.Proveedores" />
     <EntitySet Name="Stock" EntityType="TiendaModel.Stock" />
+    <EntitySet Name="sysdiagrams" EntityType="TiendaModel.sysdiagrams" />
     <EntitySet Name="Usuarios" EntityType="TiendaModel.Usuarios" />
-    <AssociationSet Name="FK_AuditoriaProducto" Association="TiendaModel.FK_AuditoriaProducto">
-      <End Role="Productos" EntitySet="Productos" />
-      <End Role="AuditoriaPrecioProductos" EntitySet="AuditoriaPrecioProductos" />
-    </AssociationSet>
     <AssociationSet Name="FK_IdCategoria" Association="TiendaModel.FK_IdCategoria">
       <End Role="Categoria" EntitySet="Categoria" />
       <End Role="Productos" EntitySet="Productos" />
@@ -28,29 +24,16 @@
       <End Role="Usuarios" EntitySet="Usuarios" />
       <End Role="IngresoProductos" EntitySet="IngresoProductos" />
     </AssociationSet>
-    <AssociationSet Name="FK__Stock__IdProduct__60A75C0F" Association="TiendaModel.FK__Stock__IdProduct__60A75C0F">
+    <AssociationSet Name="FK__Stock__IdProduct__2DB1C7EE" Association="TiendaModel.FK__Stock__IdProduct__2DB1C7EE">
       <End Role="Productos" EntitySet="Productos" />
       <End Role="Stock" EntitySet="Stock" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="AuditoriaPrecioProductos">
-    <Key>
-      <PropertyRef Name="IdAuditoria" />
-    </Key>
-    <Property Name="IdAuditoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdProducto" Type="Int32" Nullable="false" />
-    <Property Name="NombreProducto" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
-    <Property Name="PrecioAnterior" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-    <Property Name="PrecioNuevo" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-    <Property Name="FechaCambio" Type="DateTime" Precision="3" />
-    <Property Name="UsuarioCambio" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Productos" Relationship="TiendaModel.FK_AuditoriaProducto" FromRole="AuditoriaPrecioProductos" ToRole="Productos" />
-  </EntityType>
   <EntityType Name="Categoria">
     <Key>
       <PropertyRef Name="IdCategoria" />
     </Key>
-    <Property Name="IdCategoria" Type="Int32" Nullable="false" />
+    <Property Name="IdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NombreCategoria" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Productos" Relationship="TiendaModel.FK_IdCategoria" FromRole="Categoria" ToRole="Productos" />
   </EntityType>
@@ -60,7 +43,7 @@
     </Key>
     <Property Name="IdIngreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdProducto" Type="Int32" Nullable="false" />
-    <Property Name="NombreProveedor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IdProveedor" Type="Int32" Nullable="false" />
     <Property Name="CantidadIngreso" Type="Int32" Nullable="false" />
     <Property Name="IdUsuario" Type="Int32" Nullable="false" />
     <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
@@ -74,19 +57,19 @@
     </Key>
     <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NombreProducto" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
-    <Property Name="DescripciónProd" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DescripcionProd" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="PrecioProd" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
     <Property Name="IdCategoria" Type="Int32" />
-    <NavigationProperty Name="AuditoriaPrecioProductos" Relationship="TiendaModel.FK_AuditoriaProducto" FromRole="Productos" ToRole="AuditoriaPrecioProductos" />
     <NavigationProperty Name="Categoria" Relationship="TiendaModel.FK_IdCategoria" FromRole="Productos" ToRole="Categoria" />
     <NavigationProperty Name="IngresoProductos" Relationship="TiendaModel.FK_IngresoProducto" FromRole="Productos" ToRole="IngresoProductos" />
-    <NavigationProperty Name="Stock" Relationship="TiendaModel.FK__Stock__IdProduct__60A75C0F" FromRole="Productos" ToRole="Stock" />
+    <NavigationProperty Name="Stock" Relationship="TiendaModel.FK__Stock__IdProduct__2DB1C7EE" FromRole="Productos" ToRole="Stock" />
   </EntityType>
   <EntityType Name="Proveedores">
     <Key>
-      <PropertyRef Name="NombreProveedor" />
+      <PropertyRef Name="IdProveedor" />
     </Key>
-    <Property Name="NombreProveedor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreProveedor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Contacto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="IngresoProductos" Relationship="TiendaModel.FK_IngresoProveedor" FromRole="Proveedores" ToRole="IngresoProductos" />
   </EntityType>
@@ -98,7 +81,17 @@
     <Property Name="IdProducto" Type="Int32" />
     <Property Name="CantidadActual" Type="Int32" Nullable="false" />
     <Property Name="FechaActualizacion" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Productos" Relationship="TiendaModel.FK__Stock__IdProduct__60A75C0F" FromRole="Stock" ToRole="Productos" />
+    <NavigationProperty Name="Productos" Relationship="TiendaModel.FK__Stock__IdProduct__2DB1C7EE" FromRole="Stock" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -111,18 +104,6 @@
     <Property Name="Activo" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="IngresoProductos" Relationship="TiendaModel.FK_IngresoUsuario" FromRole="Usuarios" ToRole="IngresoProductos" />
   </EntityType>
-  <Association Name="FK_AuditoriaProducto">
-    <End Type="TiendaModel.Productos" Role="Productos" Multiplicity="1" />
-    <End Type="TiendaModel.AuditoriaPrecioProductos" Role="AuditoriaPrecioProductos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Productos">
-        <PropertyRef Name="IdProducto" />
-      </Principal>
-      <Dependent Role="AuditoriaPrecioProductos">
-        <PropertyRef Name="IdProducto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_IdCategoria">
     <End Type="TiendaModel.Categoria" Role="Categoria" Multiplicity="0..1" />
     <End Type="TiendaModel.Productos" Role="Productos" Multiplicity="*" />
@@ -152,10 +133,10 @@
     <End Type="TiendaModel.IngresoProductos" Role="IngresoProductos" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Proveedores">
-        <PropertyRef Name="NombreProveedor" />
+        <PropertyRef Name="IdProveedor" />
       </Principal>
       <Dependent Role="IngresoProductos">
-        <PropertyRef Name="NombreProveedor" />
+        <PropertyRef Name="IdProveedor" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -171,7 +152,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Stock__IdProduct__60A75C0F">
+  <Association Name="FK__Stock__IdProduct__2DB1C7EE">
     <End Type="TiendaModel.Productos" Role="Productos" Multiplicity="0..1" />
     <End Type="TiendaModel.Stock" Role="Stock" Multiplicity="*" />
     <ReferentialConstraint>

@@ -31,28 +31,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInicio));
             this.pnlMenuVertical = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.btnAuditoria = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.btnMovpanel = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnMovpanel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pnlContenedor = new System.Windows.Forms.Panel();
             this.pnlMenuVertical.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenuVertical
             // 
             this.pnlMenuVertical.BackColor = System.Drawing.Color.Teal;
             this.pnlMenuVertical.Controls.Add(this.btnCerrarSesion);
-            this.pnlMenuVertical.Controls.Add(this.btnAuditoria);
             this.pnlMenuVertical.Controls.Add(this.lblUsuario);
             this.pnlMenuVertical.Controls.Add(this.pictureBox2);
             this.pnlMenuVertical.Controls.Add(this.btnProveedores);
@@ -80,26 +78,6 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
-            // btnAuditoria
-            // 
-            this.btnAuditoria.BackColor = System.Drawing.Color.Teal;
-            this.btnAuditoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAuditoria.FlatAppearance.BorderSize = 0;
-            this.btnAuditoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkCyan;
-            this.btnAuditoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnAuditoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAuditoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAuditoria.ForeColor = System.Drawing.Color.White;
-            this.btnAuditoria.Image = ((System.Drawing.Image)(resources.GetObject("btnAuditoria.Image")));
-            this.btnAuditoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAuditoria.Location = new System.Drawing.Point(0, 327);
-            this.btnAuditoria.Name = "btnAuditoria";
-            this.btnAuditoria.Size = new System.Drawing.Size(191, 55);
-            this.btnAuditoria.TabIndex = 16;
-            this.btnAuditoria.Text = "Auditoria";
-            this.btnAuditoria.UseVisualStyleBackColor = false;
-            this.btnAuditoria.Click += new System.EventHandler(this.btnAuditoria_Click);
-            // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
@@ -110,6 +88,51 @@
             this.lblUsuario.Size = new System.Drawing.Size(81, 25);
             this.lblUsuario.TabIndex = 11;
             this.lblUsuario.Text = "Usuario";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnMovpanel);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(190, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(631, 107);
+            this.panel1.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(179, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(263, 33);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Tienda Miguelito";
+            // 
+            // pnlContenedor
+            // 
+            this.pnlContenedor.BackColor = System.Drawing.Color.SkyBlue;
+            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenedor.Location = new System.Drawing.Point(190, 107);
+            this.pnlContenedor.Name = "pnlContenedor";
+            this.pnlContenedor.Size = new System.Drawing.Size(631, 478);
+            this.pnlContenedor.TabIndex = 15;
+            // 
+            // btnMovpanel
+            // 
+            this.btnMovpanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMovpanel.BackgroundImage")));
+            this.btnMovpanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMovpanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMovpanel.FlatAppearance.BorderSize = 0;
+            this.btnMovpanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnMovpanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMovpanel.Location = new System.Drawing.Point(0, 0);
+            this.btnMovpanel.Name = "btnMovpanel";
+            this.btnMovpanel.Size = new System.Drawing.Size(129, 107);
+            this.btnMovpanel.TabIndex = 10;
+            this.btnMovpanel.UseVisualStyleBackColor = true;
+            this.btnMovpanel.Click += new System.EventHandler(this.btnMovpanel_Click);
             // 
             // pictureBox2
             // 
@@ -153,7 +176,7 @@
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(-1, 399);
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 329);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(192, 59);
             this.btnUsuarios.TabIndex = 5;
@@ -191,51 +214,6 @@
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnMovpanel);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(190, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(631, 107);
-            this.panel1.TabIndex = 14;
-            // 
-            // btnMovpanel
-            // 
-            this.btnMovpanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMovpanel.BackgroundImage")));
-            this.btnMovpanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMovpanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMovpanel.FlatAppearance.BorderSize = 0;
-            this.btnMovpanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btnMovpanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMovpanel.Location = new System.Drawing.Point(0, 0);
-            this.btnMovpanel.Name = "btnMovpanel";
-            this.btnMovpanel.Size = new System.Drawing.Size(129, 107);
-            this.btnMovpanel.TabIndex = 10;
-            this.btnMovpanel.UseVisualStyleBackColor = true;
-            this.btnMovpanel.Click += new System.EventHandler(this.btnMovpanel_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(179, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 33);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Tienda Miguelito";
-            // 
-            // pnlContenedor
-            // 
-            this.pnlContenedor.BackColor = System.Drawing.Color.SkyBlue;
-            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenedor.Location = new System.Drawing.Point(190, 107);
-            this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(631, 478);
-            this.pnlContenedor.TabIndex = 15;
-            // 
             // FormInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,10 +228,10 @@
             this.Load += new System.EventHandler(this.FormInicio_Load);
             this.pnlMenuVertical.ResumeLayout(false);
             this.pnlMenuVertical.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -271,7 +249,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.Button btnAuditoria;
         private System.Windows.Forms.Button btnCerrarSesion;
     }
 }

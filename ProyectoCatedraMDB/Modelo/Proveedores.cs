@@ -20,6 +20,7 @@ namespace ProyectoCatedraMDB.Modelo
             this.IngresoProductos = new HashSet<IngresoProductos>();
         }
     
+        public int IdProveedor { get; set; }
         public string NombreProveedor { get; set; }
         public string Contacto { get; set; }
     

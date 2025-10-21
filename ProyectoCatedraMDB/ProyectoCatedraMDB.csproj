@@ -76,12 +76,6 @@
     <Compile Include="FormAgregarUsuarios.Designer.cs">
       <DependentUpon>FormAgregarUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAuditoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAuditoria.Designer.cs">
-      <DependentUpon>FormAuditoria.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormEditarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,9 +124,6 @@
     <Compile Include="FormUsuarios.Designer.cs">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\AuditoriaPrecioProductos.cs">
-      <DependentUpon>DBTienda.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelo\Categoria.cs">
       <DependentUpon>DBTienda.tt</DependentUpon>
     </Compile>
@@ -163,6 +154,9 @@
     <Compile Include="Modelo\Stock.cs">
       <DependentUpon>DBTienda.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\sysdiagrams.cs">
+      <DependentUpon>DBTienda.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Usuarios.cs">
       <DependentUpon>DBTienda.tt</DependentUpon>
     </Compile>
@@ -172,11 +166,20 @@
     <EmbeddedResource Include="FormAgregarProducto.resx">
       <DependentUpon>FormAgregarProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAuditoria.resx">
-      <DependentUpon>FormAuditoria.cs</DependentUpon>
+    <EmbeddedResource Include="FormAgregarProveedor.resx">
+      <DependentUpon>FormAgregarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAgregarUsuarios.resx">
+      <DependentUpon>FormAgregarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditarProducto.resx">
       <DependentUpon>FormEditarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarProveedor.resx">
+      <DependentUpon>FormEditarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarUsuarios.resx">
+      <DependentUpon>FormEditarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>

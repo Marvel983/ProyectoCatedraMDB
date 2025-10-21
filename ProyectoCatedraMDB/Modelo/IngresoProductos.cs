@@ -16,7 +16,7 @@ namespace ProyectoCatedraMDB.Modelo
     {
         public int IdIngreso { get; set; }
         public int IdProducto { get; set; }
-        public string NombreProveedor { get; set; }
+        public int IdProveedor { get; set; }
         public int CantidadIngreso { get; set; }
         public int IdUsuario { get; set; }
         public System.DateTime FechaIngreso { get; set; }

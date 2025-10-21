@@ -75,20 +75,6 @@ namespace ProyectoCatedraMDB
 
             frm.Show();
         }
-        private void btnAuditoria_Click(object sender, EventArgs e)
-        {
-            pnlContenedor.Controls.Clear();
-
-            FormAuditoria frm = new FormAuditoria();
-
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-
-            pnlContenedor.Controls.Add(frm);
-
-            frm.Show();
-        }
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show(

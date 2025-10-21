@@ -36,18 +36,18 @@
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbProveedor = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.nudStock = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbCategoria = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.cbProveedor = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nudStock = new System.Windows.Forms.NumericUpDown();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.pnlBody.SuspendLayout();
             this.gb_Editar_Producto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
@@ -162,6 +162,16 @@
             this.label2.Size = new System.Drawing.Size(0, 25);
             this.label2.TabIndex = 17;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(23, 147);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(104, 21);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Descripción:";
+            // 
             // cbProveedor
             // 
             this.cbProveedor.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -180,23 +190,33 @@
             this.cbProveedor.Size = new System.Drawing.Size(151, 29);
             this.cbProveedor.TabIndex = 44;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(299, 100);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 21);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "Proveedor:";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(23, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 21);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "Nombre:";
             // 
-            // nudStock
+            // label3
             // 
-            this.nudStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudStock.Location = new System.Drawing.Point(399, 147);
-            this.nudStock.Name = "nudStock";
-            this.nudStock.Size = new System.Drawing.Size(71, 29);
-            this.nudStock.TabIndex = 42;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(23, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 21);
+            this.label3.TabIndex = 39;
+            this.label3.Text = "Precio:";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(133, 144);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(151, 29);
+            this.txtDescripcion.TabIndex = 36;
             // 
             // label5
             // 
@@ -208,23 +228,13 @@
             this.label5.TabIndex = 41;
             this.label5.Text = "Cantidad:";
             // 
-            // txtPrecio
+            // nudStock
             // 
-            this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(133, 186);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(151, 29);
-            this.txtPrecio.TabIndex = 40;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 194);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 21);
-            this.label3.TabIndex = 39;
-            this.label3.Text = "Precio:";
+            this.nudStock.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudStock.Location = new System.Drawing.Point(399, 147);
+            this.nudStock.Name = "nudStock";
+            this.nudStock.Size = new System.Drawing.Size(71, 29);
+            this.nudStock.TabIndex = 42;
             // 
             // cbCategoria
             // 
@@ -244,6 +254,16 @@
             this.cbCategoria.Size = new System.Drawing.Size(151, 29);
             this.cbCategoria.TabIndex = 38;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(299, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 21);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Proveedor:";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -254,15 +274,13 @@
             this.label6.TabIndex = 37;
             this.label6.Text = "Categoria:";
             // 
-            // label4
+            // txtPrecio
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(23, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 21);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "Nombre:";
+            this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.Location = new System.Drawing.Point(133, 186);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(151, 29);
+            this.txtPrecio.TabIndex = 40;
             // 
             // txtNombre
             // 
@@ -271,24 +289,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(151, 29);
             this.txtNombre.TabIndex = 35;
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(133, 144);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(151, 29);
-            this.txtDescripcion.TabIndex = 36;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(23, 147);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(104, 21);
-            this.label9.TabIndex = 34;
-            this.label9.Text = "Descripción:";
             // 
             // FormEditarProducto
             // 

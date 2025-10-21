@@ -17,19 +17,16 @@ namespace ProyectoCatedraMDB.Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Productos()
         {
-            this.AuditoriaPrecioProductos = new HashSet<AuditoriaPrecioProductos>();
             this.IngresoProductos = new HashSet<IngresoProductos>();
             this.Stock = new HashSet<Stock>();
         }
     
         public int IdProducto { get; set; }
         public string NombreProducto { get; set; }
-        public string DescripciónProd { get; set; }
+        public string DescripcionProd { get; set; }
         public decimal PrecioProd { get; set; }
         public Nullable<int> IdCategoria { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AuditoriaPrecioProductos> AuditoriaPrecioProductos { get; set; }
         public virtual Categoria Categoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IngresoProductos> IngresoProductos { get; set; }

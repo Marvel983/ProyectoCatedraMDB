@@ -100,9 +100,10 @@ namespace ProyectoCatedraMDB
             if (dgvProductos.SelectedRows.Count > 0)
             {
                 int idProducto = Convert.ToInt32(dgvProductos.SelectedRows[0].Cells["ID"].Value);
+                string nombreProducto = dgvProductos.SelectedRows[0].Cells["Nombre"].Value.ToString();
 
-                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este producto?", 
-                    "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show($"¿Estás seguro de que deseas eliminar permanentemente el producto '{nombreProducto}' y todos sus registros de Stock e Ingresos asociados?",
+                    "Confirmar Eliminación Masiva", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -114,31 +115,43 @@ namespace ProyectoCatedraMDB
 
                             if (productoAEliminar != null)
                             {
+                                var stock = db.Stock.FirstOrDefault(s => s.IdProducto == idProducto);
+                                if (stock != null)
+                                {
+                                    db.Stock.Remove(stock);
+                                }
+
+                                var ingresos = db.IngresoProductos.Where(i => i.IdProducto == idProducto).ToList();
+                                if (ingresos.Any())
+                                {
+                                    db.IngresoProductos.RemoveRange(ingresos);
+                                }
+
                                 db.Productos.Remove(productoAEliminar);
                                 int rowsAffected = db.SaveChanges();
 
                                 if (rowsAffected > 0)
                                 {
-                                    MessageBox.Show("Producto eliminado correctamente.", "Éxito",
+                                    MessageBox.Show($"Producto '{nombreProducto}' y todos sus registros asociados eliminados correctamente.", "Éxito",
                                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     CargarProductos();
                                 }
                                 else
                                 {
-                                    MessageBox.Show("No se encontró el producto o no se pudo eliminar.", "Advertencia",
+                                    MessageBox.Show("No se encontraron registros para eliminar.", "Advertencia",
                                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
                             }
                         }
                     }
-                    catch (System.Data.Entity.Infrastructure.DbUpdateException dbEx)
-                    {
-                        MessageBox.Show("Error de integridad de datos. El producto no puede ser eliminado porque tiene registros asociados (Stock o Ingresos).",
-                                        "Error de Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Ocurrió un error inesperado: " + ex.Message, "Error",
+                        string mensajeError = "Ocurrió un error inesperado al realizar la eliminación en cascada. ";
+                        if (ex.InnerException != null)
+                        {
+                            mensajeError += ex.InnerException.Message;
+                        }
+                        MessageBox.Show(mensajeError, "Error de Eliminación",
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -151,5 +164,7 @@ namespace ProyectoCatedraMDB
 
         // Sin funciones
         private void pnlBody_Paint(object sender, PaintEventArgs e) { }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e){}
     }
 }

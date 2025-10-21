@@ -12,16 +12,12 @@ namespace ProyectoCatedraMDB.Modelo
     using System;
     using System.Collections.Generic;
     
-    public partial class AuditoriaPrecioProductos
+    public partial class sysdiagrams
     {
-        public int IdAuditoria { get; set; }
-        public int IdProducto { get; set; }
-        public string NombreProducto { get; set; }
-        public decimal PrecioAnterior { get; set; }
-        public decimal PrecioNuevo { get; set; }
-        public Nullable<System.DateTime> FechaCambio { get; set; }
-        public string UsuarioCambio { get; set; }
-    
-        public virtual Productos Productos { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

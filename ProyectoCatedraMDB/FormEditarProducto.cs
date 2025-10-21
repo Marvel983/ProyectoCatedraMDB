@@ -36,11 +36,13 @@ namespace ProyectoCatedraMDB
                     var producto = db.Productos
                                      .FirstOrDefault(p => p.IdProducto == id);
 
+                    var stock = db.Stock.FirstOrDefault(s => s.IdProducto == id);
+
                     if (producto != null)
                     {
                         lblIdProducto.Text = producto.IdProducto.ToString();
                         txtNombre.Text = producto.NombreProducto.Trim();
-                        txtDescripcion.Text = producto.DescripciónProd.Trim();
+                        txtDescripcion.Text = producto.DescripcionProd.Trim();
                         txtPrecio.Text = producto.PrecioProd.ToString();
 
                         if (producto.IdCategoria.HasValue)
@@ -48,7 +50,15 @@ namespace ProyectoCatedraMDB
                             cbCategoria.SelectedValue = producto.IdCategoria.Value;
                         }
 
-                        nudStock.Value = 0;
+                        if (stock != null)
+                        {
+                            nudStock.Maximum = decimal.MaxValue;
+                            nudStock.Value = stock.CantidadActual;
+                        }
+                        else
+                        {
+                            nudStock.Value = 0; 
+                        }
                     }
                     else
                     {
@@ -81,13 +91,14 @@ namespace ProyectoCatedraMDB
             {
                 var proveedores = db.Proveedores
                                    .Select(p => new {
+                                       ID = p.IdProveedor,
                                        Nombre = p.NombreProveedor
                                    })
                                    .ToList();
 
                 cbProveedor.DataSource = proveedores;
-                cbProveedor.DisplayMember = "Nombre";
-                cbProveedor.ValueMember = "Nombre";
+                cbProveedor.DisplayMember = "Nombre"; 
+                cbProveedor.ValueMember = "ID";       
             }
         }
 
@@ -95,66 +106,95 @@ namespace ProyectoCatedraMDB
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                !decimal.TryParse(txtPrecio.Text, out decimal precio) ||
-                cbCategoria.SelectedValue == null)
+        !decimal.TryParse(txtPrecio.Text, out decimal precio) ||
+        cbCategoria.SelectedValue == null)
             {
-                MessageBox.Show("Verifique que todos los campos sean válidos.", 
+                MessageBox.Show("Verifique que todos los campos sean válidos.",
                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (MessageBox.Show("¿Desea guardar los cambios del producto?", 
+            if (MessageBox.Show("¿Desea guardar los cambios del producto?",
                 "Confirmar Edición", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
             {
                 return;
             }
 
-            int cantidadIngreso = (int)nudStock.Value;
-            string nombreProveedor = cbProveedor.SelectedValue?.ToString(); 
-            int idUsuarioLogueado = SesionUsuario.IdEmpleado;
+            int stockNuevo = (int)nudStock.Value;
+            int? idProveedorSeleccionado = cbProveedor.SelectedValue != null ? (int?)cbProveedor.SelectedValue : null;
+
+            int idUsuarioLogueado = SesionUsuario.IdEmpleado; 
+
+            if (idUsuarioLogueado <= 0)
+            {
+                MessageBox.Show("Error de seguridad: No se pudo identificar al usuario logueado. Por favor, reinicie la aplicación e inicie sesión.",
+                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             try
             {
                 using (DBTiendaEntities db = new DBTiendaEntities())
                 {
                     Productos productoExistente = db.Productos.FirstOrDefault(p => p.IdProducto == this.IdProductoEditando);
+                    Stock stockExistente = db.Stock.FirstOrDefault(s => s.IdProducto == this.IdProductoEditando);
 
-                    if (productoExistente != null)
+                    if (productoExistente != null && stockExistente != null)
                     {
+                        int stockAnterior = stockExistente.CantidadActual;
+
                         productoExistente.NombreProducto = txtNombre.Text.Trim();
-                        productoExistente.DescripciónProd = txtDescripcion.Text.Trim();
+                        productoExistente.DescripcionProd = txtDescripcion.Text.Trim();
                         productoExistente.PrecioProd = precio;
                         productoExistente.IdCategoria = (int)cbCategoria.SelectedValue;
 
-                        if (cantidadIngreso > 0)
+                        stockExistente.CantidadActual = stockNuevo;
+                        stockExistente.FechaActualizacion = DateTime.Now;
+
+                        if (stockNuevo > stockAnterior)
                         {
-                            if (string.IsNullOrEmpty(nombreProveedor))
+                            int cantidadAñadida = stockNuevo - stockAnterior;
+
+                            if (idProveedorSeleccionado == null || idProveedorSeleccionado <= 0)
                             {
-                                MessageBox.Show("Debe seleccionar un proveedor para registrar el ingreso de stock.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return; 
+                                MessageBox.Show("Debe seleccionar un proveedor válido para registrar el aumento de stock.", "Error de Proveedor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
                             }
 
                             IngresoProductos nuevoIngreso = new IngresoProductos
                             {
                                 IdProducto = this.IdProductoEditando,
-                                NombreProveedor = nombreProveedor,
-                                CantidadIngreso = cantidadIngreso,
+
+                                IdProveedor = idProveedorSeleccionado.Value,
+
+                                CantidadIngreso = cantidadAñadida,
                                 IdUsuario = idUsuarioLogueado,
                                 FechaIngreso = DateTime.Now
                             };
-
                             db.IngresoProductos.Add(nuevoIngreso);
                         }
+
+                        else if (stockNuevo < stockAnterior)
+                        {
+                            MessageBox.Show($"ADVERTENCIA: El stock se redujo de {stockAnterior} a {stockNuevo} unidades. No se registró una salida en IngresoProductos.",
+                                            "Ajuste de Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
                         db.SaveChanges();
 
                         MessageBox.Show("Producto y stock actualizados exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RegresarAFormProductos();
                     }
+                    else
+                    {
+                        MessageBox.Show("Error: No se pudo encontrar el producto o el stock para la edición.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al actualizar el producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string mensajeError = ex.InnerException != null ? ex.InnerException.InnerException.Message : ex.Message;
+                MessageBox.Show("Error al actualizar el producto: " + mensajeError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void RegresarAFormProductos()

@@ -4,19 +4,20 @@ USE Tienda;
 GO
 
 CREATE TABLE Proveedores (
-    NombreProveedor NVARCHAR(100) CONSTRAINT PK_Proveedores PRIMARY KEY,
+    IdProveedor INT IDENTITY(1,1) CONSTRAINT PK_Proveedores PRIMARY KEY,
+    NombreProveedor NVARCHAR(100),
     Contacto NVARCHAR(100)
 );
 
 CREATE TABLE Categoria (
-    IdCategoria INT CONSTRAINT PK_Categoria PRIMARY KEY,
+    IdCategoria INT IDENTITY(1,1) CONSTRAINT PK_Categoria PRIMARY KEY,
     NombreCategoria NVARCHAR(60)
 );
 
 CREATE TABLE Productos (
     IdProducto INT IDENTITY(1,1) CONSTRAINT PK_Productos PRIMARY KEY,
     NombreProducto NVARCHAR(120),
-    DescripciónProd NVARCHAR(200) NOT NULL,
+    DescripcionProd NVARCHAR(200) NOT NULL,
     PrecioProd DECIMAL(10,2) NOT NULL CONSTRAINT CK_PrecioProd CHECK (PrecioProd >= 0),
     IdCategoria INT CONSTRAINT FK_IdCategoria FOREIGN KEY REFERENCES Categoria(IdCategoria)
 );
@@ -39,46 +40,34 @@ CREATE TABLE Usuarios (
 CREATE TABLE IngresoProductos (
     IdIngreso INT IDENTITY(1,1) CONSTRAINT PK_IngresoProductos PRIMARY KEY,
     IdProducto INT NOT NULL CONSTRAINT FK_IngresoProducto FOREIGN KEY REFERENCES Productos(IdProducto),
-    NombreProveedor NVARCHAR(100) NOT NULL CONSTRAINT FK_IngresoProveedor FOREIGN KEY REFERENCES Proveedores(NombreProveedor), 
+    IdProveedor int NOT NULL CONSTRAINT FK_IngresoProveedor FOREIGN KEY REFERENCES Proveedores(IdProveedor), 
     CantidadIngreso INT NOT NULL CONSTRAINT CK_CantidadIngreso CHECK (CantidadIngreso > 0),
     IdUsuario INT NOT NULL CONSTRAINT FK_IngresoUsuario FOREIGN KEY REFERENCES Usuarios(IdUsuario),
     FechaIngreso DATETIME NOT NULL DEFAULT GETDATE()
 );
 
-CREATE TABLE AuditoriaPrecioProductos (
-    IdAuditoria INT IDENTITY(1,1) PRIMARY KEY,
-    IdProducto INT NOT NULL 
-        CONSTRAINT FK_AuditoriaProducto FOREIGN KEY REFERENCES Productos(IdProducto), 
-    NombreProducto NVARCHAR(120),
-    PrecioAnterior DECIMAL(10,2) NOT NULL,
-    PrecioNuevo DECIMAL(10,2) NOT NULL,
-    FechaCambio DATETIME DEFAULT GETDATE(),
-    UsuarioCambio NVARCHAR(100) DEFAULT SUSER_SNAME()
-);
-
-/*DROP TABLE IngresoProductos;
-DROP TABLE AuditoriaPrecioProductos;
+DROP TABLE IngresoProductos;
 DROP TABLE Stock;
 DROP TABLE Productos;
 DROP TABLE Usuarios;
 DROP TABLE Categoria;
 DROP TABLE Proveedores;
-*/
+
 
 INSERT INTO Proveedores (NombreProveedor, Contacto) VALUES
 ('Bebidas la Constancia S.A', 'Juan Pérez - 7555-1001'),
 ('Panaderia El Buen Sabor', 'María López - 7980-0121'),
-('Distribuidora Diana', 'Mariana Sosa- 2250-9988'),
-('Distribuidora Lourdes','Marcos Roldan- 2240-2525'),
+('Distribuidora Diana', 'Mariana Sosa - 2250-9988'),
+('Distribuidora Lourdes', 'Marcos Roldan - 2240-2525'),
 ('Lácteos San Julián', 'Carlos Menjívar - 7722-3344'),
 ('Frutas Tropicales S.A. de C.V.', 'Ana Ramírez - 7890-1122');
-GO
 
-INSERT INTO Categoria (IdCategoria, NombreCategoria) VALUES
-(1, 'Bebidas'), (2, 'Pan dulce y Repostería'), (3, 'Snacks'), (4, 'Granos Básicos'),
-(5, 'Verduras y frutas'), (6, 'Lácteos'), (7, 'Carnes y Embutidos'), (8, 'Abarrotes');
 
-INSERT INTO Productos (NombreProducto, DescripciónProd, PrecioProd, IdCategoria) VALUES
+INSERT INTO Categoria (NombreCategoria) VALUES
+('Bebidas'), ('Pan dulce y Repostería'), ('Snacks'), ('Granos Básicos'),
+('Verduras y frutas'), ('Lácteos'), ('Carnes y Embutidos'), ('Abarrotes');
+
+INSERT INTO Productos (NombreProducto, DescripcionProd, PrecioProd, IdCategoria) VALUES
 ('Salva-Cola 3l', 'Bebida carbonatada', 2.50, 1), ('Jugo de Naranja 1l', 'Bebida refrescante', 1.30, 1),
 ('Agua Cristal 1.5l', 'Agua purificada embotellada', 0.60, 1), ('Refresco Kolashanpan 2l', 'Bebida gaseosa sabor original', 1.10, 1),
 ('Semita alta', 'Porción individual de pan dulce', 0.75, 2), ('Quesadilla Salvadoreña', 'Pan dulce tradicional con queso', 1.50, 2),
@@ -128,25 +117,6 @@ BEGIN
 
     DELETE FROM Productos
     WHERE IdProducto IN (SELECT IdProducto FROM deleted);
-END;
-GO
-
-CREATE TRIGGER TRG_AuditPrecioProducto
-ON Productos
-AFTER UPDATE
-AS
-BEGIN
-    IF UPDATE(PrecioProd)
-    BEGIN
-        INSERT INTO AuditoriaPrecioProductos (
-            IdProducto, NombreProducto, PrecioAnterior, PrecioNuevo
-        )
-        SELECT
-            i.IdProducto, i.NombreProducto, d.PrecioProd, i.PrecioProd
-        FROM inserted i
-        INNER JOIN deleted d ON i.IdProducto = d.IdProducto
-        WHERE i.PrecioProd <> d.PrecioProd;
-    END
 END;
 GO
 
